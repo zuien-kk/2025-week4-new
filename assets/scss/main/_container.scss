@@ -1,0 +1,374 @@
+// 這支 scss 放容器
+// 就是內容與容器分離的那個容器
+
+// 像是
+// container
+// row
+// col
+// gutter
+// padding-margin
+// flex
+// display
+// 等等都會放在這裡
+
+// gutter
+
+// 這個 $xy-list
+// 只為了跑 each 取值方便才設定的
+// 基本上不會改裡面的值
+// 所以不放在 _variables.scss
+
+$xy-list:(
+    x,
+    y,
+);
+
+// 另外在 gutter 的規劃上
+// 只製作 gx-* gy-*
+// 不會製作 g-* 同時調整上下左右的 gutter
+
+// 這是因為我希望
+// gx-* 下在 container 上
+// gy-* 則下在 row 上
+
+// 直播課有說到
+// .col-* 和 .row 有 padding 和 margin 負值抵銷
+// 可讓內容貼齊
+// 但沒有 .container 用 padding 補足 gutter on outside
+// 會出現 x 軸
+
+// 但 y 軸沒差本來就會出現
+// 而且雖然底部會出現不明空白
+// 只要有內容就會自然緊貼消除空白
+// 考慮到網頁的底部是 footer
+// footer 的資料不太會像卡片結構那樣換行
+// 所以不用在 .row 加 gy-*
+// 甚至不用格線系統應該也能做
+// 那麼應該網頁的底部不會出現 y 軸空白才對
+// 實際切版在實驗看看
+// 希望盒模型不要爆炸
+
+@each $g-key ,$g-value in $gutter-pixel {
+
+    @each $xy in $xy-list{
+
+    // 讀取一個只有寫 x 和 y 的清單
+    // 這是為了下一個 each 方便取值
+    // 如果沒有的話
+    // x 跟 y 內層要重複寫兩次一模一樣的 each
+
+    // 層層的 each 重點是能取出像是：
+        // base: 12px,
+        // sm: 16px,
+        // md: 20px,
+        // lg: 24px,
+    // 這樣的結構
+
+    // 其中最關鍵的變數：
+    // $base-sm-md-lg 代表 base sm md lg
+    // $base-sm-md-lg-value 代表 12px 16px 20px 24px
+    // 抓到這些值後面就好做了
+
+        @each $base-sm-md-lg, $base-sm-md-lg-value in  map-get($g-value, $xy ){
+
+            @if $base-sm-md-lg == base{
+
+                // 如果是 base 就不做響應式
+
+                .g#{$xy}-#{$g-key} {
+                    --gutter-#{$xy}: #{$base-sm-md-lg-value};
+                }
+            }
+
+            @else{
+
+                @each $bp-key, $bp-value in $breakpoints{
+
+                    @if $base-sm-md-lg == $bp-key{
+
+                    // 由於 $gutter-pixel 最內層 和 $breakpoints 的 key
+                    // 都有 sm md lg
+                    // 只要限制必須剛好對應上才產生樣式
+                    // 就不會產生重複樣式
+
+                        @media(min-width: #{$bp-value}){
+                            
+                            .g#{$xy}-#{$g-key} {
+                                --gutter-#{$xy}: #{$base-sm-md-lg-value};
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// container
+// 應該不用響應式
+
+// 傑 利 (前端助教)建議：
+// .container 建議只保留 1296px 寬度就好，不用全部比例都製作出來，若遇到內容寬度不滿 1296px 時，只需要在外層使用 flex 語法，並搭配 col-12 系列的格線系統就能完成。以第一週的品牌故事頁為例，有些段落的寬度是 856px，從設計稿看可以發現只佔據格線系統 8 欄，就可以寫入 .col-12-8，並在外層的 .row 加入 .justify-content-center 就能將內容置中，並不需要設定各尺寸容器的寬度
+
+@for $i from 1 through $container-gutter {
+    .container-g#{$i} {
+        max-width: (($layout-column-pixel + $layout-gutter-pixel) * $layout-column-number) + ($layout-gutter-pixel * ($i - 1));
+        margin: 0 auto;
+        padding-left: calc(var(--gutter-x) * 0.5 * $i);
+        padding-right: calc(var(--gutter-x) * 0.5 * $i);
+        padding-top: calc(var(--gutter-y) * 0.5 * $i);
+        padding-bottom: calc(var(--gutter-y) * 0.5 * $i);
+    }
+}
+
+
+// row
+// 應該不用響應式
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--gutter-x) * -0.5);
+    margin-right: calc(var(--gutter-x) * -0.5);
+    margin-top: calc(var(--gutter-y) * -0.5);
+    margin-bottom: calc(var(--gutter-y) * -0.5);
+}
+
+// col
+
+// 手刻 bootstrap 格線系統
+// 將欄數定義成變數 $layout-column-number
+// 並用 @for 迴圈生成樣式
+// 使用上不管有沒有要響應式一定要加這個沒有響應式版本的
+// 因為 padding 作出的 gutter 寫在這裡
+
+@for $i from 1 through $layout-column-number {
+    .col-#{$i} {
+        width: calc(100% / $layout-column-number) * $i;
+        padding-left: calc(var(--gutter-x) * 0.5);
+        padding-right: calc(var(--gutter-x) * 0.5);
+        padding-top: calc(var(--gutter-y) * 0.5);
+        padding-bottom: calc(var(--gutter-y) * 0.5);
+    }
+}
+
+// 響應式版本只更改 width 百分比寬度
+// 因為預設是一定會加沒響應式版本的樣式
+// padding 才會在
+// 想改 gutter 的響應式設計要用 gy-* gx-* 的樣式來做修改
+// 不支援在最小解析度自動滿版的樣式
+
+@each $bg-key ,$bg-value in $breakpoints {
+    @media(min-width: $bg-value) {
+        @for $i from 1 through $layout-column-number {
+            .col-#{$bg-key}-#{$i} {
+                width: calc(100% / $layout-column-number) * $i;
+            }
+        }
+    }
+}
+
+// padding-margin
+
+// auto 版本
+
+@each $prop-key, $prop-value in $padding-margin-prop {
+    .#{$prop-key}-auto {
+        @each $prop-list in $prop-value {
+            #{$prop-list}: auto;
+        }
+    }
+}
+
+// 傑 利 (前端助教)建議：
+// 間距目前切分過細，建議還是使用 2px 或 4px 為單位
+
+@each $prop-key, $prop-value in $padding-margin-prop {
+    @for $i from 0 through $padding-margin-max {
+        .#{$prop-key}-#{$i} {
+            @each $prop-list in $prop-value {
+                #{$prop-list}: $i * 4px;
+            }
+        }
+    }
+}
+
+@each $prop-key, $prop-value in $padding-margin-prop {
+    @for $i from 0 through $padding-margin-max {
+        @each $bp-key, $bp-value in $breakpoints {
+            @media(min-width: #{$bp-value}) {
+                .#{$prop-key}-#{$bp-key}-#{$i} {
+                    @each $prop-list in $prop-value {
+                        #{$prop-list}: $i * 4px;
+                    }
+                }               
+            }            
+        }
+    }
+}
+
+// 這邊處理不為 4 的倍數的 padding margin
+// 或設計稿上找到比較大的數字設定在這邊
+// 總之例外或離群值都用下面的大 @each 處理
+// 盡量減少 $padding-margin-max 的變數大小
+// 來處理 css 樣式生成過多
+
+@each $prop-key, $prop-value in $padding-margin-prop {
+
+    // $prop-key : p py mr mb ...
+    // $prop-value: padding (padding-top padding-bottom)...
+
+    @if map-has-key($padding-margin-size, $prop-key) {
+
+        // 如果 $padding-margin-size 有寫 p py mr mb 等才會產生樣式
+
+        // map-has-key 好用
+        // 可以不用多寫一層
+        // @each $a, $b in $padding-margin-size
+        // @if $a == $prop-key
+
+        // 另外下一層的 each 直接用
+        // map-get($padding-margin-size, $prop-key)
+        // 來取值是因為 $padding-margin-size 沒值要取了
+        // 所以直接跳下一層取值
+
+        // 重要變數！
+        // $size-key: layout ...
+        // $size-value: (base: 12px,)...
+
+        // 注意
+        // $size-value 本質還是一個小 map
+        // 要用 map-get() 取值
+
+        @each $size-key, $size-value in map-get($padding-margin-size, $prop-key){
+            .#{$prop-key}-#{$size-key}{
+                @each $prop-list in $prop-value{                  
+                    #{$prop-list} : map-get($size-value, base);
+                }
+            }
+
+            // 讀取響應式 map
+
+            @each $bp-key, $bp-value in $breakpoints {
+                @if map-has-key($size-value, $bp-key) {
+
+                // AI 建議這裡也要確定有沒有 sm md lg 才生成樣式 
+                // 保險買起來
+
+                    @media(min-width: #{$bp-value}) {
+                        .#{$prop-key}-#{$size-key} {
+                            @each $prop-list in $prop-value{                  
+                                #{$prop-list} : map-get($size-value, $bp-key);
+                            }                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// display
+
+@each $d-list in $display {
+    .d-#{$d-list} {
+        display: #{$d-list};
+    }
+}
+
+@each $d-list in $display {
+    @each $bg-key, $bg-value in $breakpoints {
+        @media (min-width: #{$bg-value}){
+            .d-#{$bg-key}-#{$d-list} {
+                display: #{$d-list};
+            }
+        }
+    }
+}
+
+// text-align
+
+@each $t-key, $t-value in $text-align {
+    .text-#{$t-key} {
+        text-align: #{$t-value};
+    }
+}
+
+@each $t-key, $t-value in $text-align {
+    @each $bp-key, $bp-value in $breakpoints {
+        @media(min-width: #{$bp-value}) {
+            .text-#{$bp-key}-#{$t-key} {
+                text-align: #{$t-value};
+            }           
+        }
+    }
+}
+
+// flex
+
+// flex-firection
+
+@each $d-key, $d-value in $flex {
+    .flex-#{$d-key} {
+        flex-direction: #{$d-value};
+    }
+}
+
+@each $d-key, $d-value in $flex {
+    @each $bp-key, $bp-value in $breakpoints {
+        @media (min-width: #{$bp-value}) {
+            .flex-#{$bp-key}-#{$d-key} {
+                flex-direction: #{$d-value}; 
+            }
+        }
+    }
+}
+
+// justify-content
+
+@each $j-key, $j-value in $justify-content {
+    .justify-content-#{$j-key} {
+        justify-content: #{$j-value};
+    }
+}
+
+@each $j-key, $j-value in $justify-content {
+    @each $bp-key, $bp-value in $breakpoints {
+        @media (min-width: #{$bp-value}) {
+            .justify-content-#{$bp-key}-#{$j-key} {
+                justify-content: #{$j-value};
+            }
+        }
+    }
+}
+
+// align-items
+
+@each $a-key, $a-value in $align-items {
+    .align-items-#{$a-key} {
+        align-items: #{$a-value};
+    }
+}
+
+@each $a-key, $a-value in $align-items {
+    @each $bp-key, $bp-value in $breakpoints {
+        @media (min-width: #{$bp-value}) {
+            .align-items-#{$bp-key}-#{$a-key} {
+                align-items: #{$a-value};
+            }
+        }
+    }
+}
+
+// 等比容器
+// 應該不用響應式
+
+.aspect-1-1{
+    aspect-ratio: 1/1;
+}
+
+@each $w-list in $width-px {
+    .w-#{$w-list} {
+        width: #{$w-list};
+    }
+}

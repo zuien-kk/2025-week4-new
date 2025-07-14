@@ -1,0 +1,56 @@
+// 傑 利 (前端助教)建議：
+// 此份設計稿只有使用到 Noto Sans TC，第 5 行其他字體可以不用引入唷
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    // outline: 1px solid red;
+}
+
+body{
+    font-family: "Noto Sans TC", sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+    color: map-get($color, n900);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.scale{
+    a:hover{
+        transform: scale(1.2);
+    }
+}
+
+.disc{
+    list-style-type: disc;
+    padding-left: 24px;
+}
+
+.fs-14px{
+    font-size: 14px;
+}

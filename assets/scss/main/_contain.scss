@@ -1,0 +1,204 @@
+// color
+
+@each $c-key, $c-value in $color {
+
+    .c-#{$c-key} {
+        color: #{$c-value};
+    }
+
+    .bg-#{$c-key} {
+        background: #{$c-value};
+    }
+
+}
+
+
+@each $c-key, $c-value in $color {
+    @each $bg-key, $bg-value in $breakpoints {
+        @media (min-width: #{$bg-value}) {
+
+            .c-#{$bg-key}-#{$c-key} {
+                color: #{$c-value};
+            }
+    
+            .bg-#{$bg-key}-#{$c-key} {
+                background: #{$c-value};
+            }
+        }
+    }
+}
+
+// font-size
+
+@for $i from 1 through $font-size {
+    .fs-#{$i} {
+        font-size: ($i * 4px) ;
+    }
+}
+
+@for $i from 1 through $font-size {
+    @each $bp-key, $bp-value in $breakpoints {
+        @media(min-width: #{$bp-value}) {
+            .fs-#{$bp-key}-#{$i} {
+                font-size: ($i * 4px) ;
+            }            
+        } 
+    }
+}
+
+// font-weight
+
+@each $f-list in $font-weight {
+    .fw-#{$f-list} {
+        font-weight: $f-list * 100;
+    }
+}
+
+// 偽元素畫線
+
+.line{
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        background: currentColor;
+    }
+
+    // 方向
+
+    &-bottom::after{
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+    }
+
+    &-left::after{
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 1px;        
+    }
+
+    // 顏色
+
+    @each $c-key, $c-value in $color {
+
+        &-#{$c-key}::after{
+            background: #{$c-value};
+        }
+    }
+
+    // 粗細
+
+    @for $i from 1 through $after-line-bold {
+
+        &-x-#{$i}::after{
+            width: ($i * 1px);
+        }
+
+        &-y-#{$i}::after{
+            height: ($i * 1px);
+        }        
+    }
+}
+
+// 偽元素斷行
+
+.br{
+    &::after{
+        content: "";
+        display: block;
+    }
+
+    // 間距
+
+    @for $i from 1 through $after-br {        
+        &-mb-sm-#{$i}::after{
+            margin-bottom: ($i * 1px);
+        }
+    }
+
+}
+
+@media(min-width: map-get($breakpoints,sm)){
+
+    .br{
+        &::after{
+            content: "";
+            display: inline;
+        }
+
+        // 間距
+        
+        @for $i from 1 through $after-br {        
+            &-mb-sm-#{$i}::after{
+                margin-bottom: ($i * 0px);
+            }
+        }
+    }
+}
+
+// button
+
+.btn{
+    display: inline-block;
+    cursor: pointer;
+    background: inherit;
+    border-radius: 4px;
+    border: none;
+    letter-spacing: inherit;
+    font-weight: 500;
+    line-height: inherit;
+    font-size: inherit;
+    transition: 0.3s;
+
+    // 大小
+
+    &-lg{
+        padding: 12px 24px;
+    }
+
+    &-sm{
+        padding: 8px 16px;
+    }
+
+    // 樣式
+
+    &-primary{
+        color: map-get($color, n900 );
+        background: map-get($color, p300);
+        &:hover{
+            color: map-get($color, p500);
+        }
+        &:focus{
+            color: map-get($color, p500);
+            box-shadow: 0px 0px 0px 3px #C0FA7366;
+        }
+    }
+
+    &-secondary{
+        color: map-get($color, n000 );
+        background: map-get($color, n900);
+        &:hover{
+            background: map-get($color, n700);
+        }
+        &:focus{
+            background: map-get($color, n700);
+            box-shadow: 0px 0px 0px 3px #2125291A;
+        }
+    }
+
+    &-tertiary{
+        outline: 1px solid map-get($color ,n900);
+        &:hover{
+            color: map-get($color, n000 );
+            background: map-get($color, n900);            
+        }
+        &:focus{
+            color: map-get($color, n000 );
+            background: map-get($color, n900);  
+            box-shadow: 0px 0px 0px 3px #2125291A;
+        }
+    }
+}

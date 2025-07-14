@@ -1,0 +1,228 @@
+// 響應式斷點
+// 行動優先
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+);
+
+// 通用 column 欄數
+// 通用 column 寬度
+// 通用 gutter 寬度
+
+$layout-column-number: 12;
+$layout-column-pixel: 86px;
+$layout-gutter-pixel: 24px;
+
+// container
+
+$container-gutter: 2;
+
+// gutter
+
+$gutter-pixel: (
+    layout: (
+        x:(
+            base: 12px,
+            sm: 16px,
+            md: 20px,
+            lg: 24px,
+        ),
+        y:(
+            base: 12px,
+            sm: 16px,
+            md: 20px,
+            lg: 24px,
+        ),
+    ),
+    section: (
+        y:(
+            base: 32px,
+            sm: 37px,
+            md: 42px,
+            lg: 48px,
+        ),   
+    ),
+    0:(
+        y:(
+            base: 0px,
+            sm: 0px,
+            md: 0px,
+            lg: 0px,
+        )
+    ),
+);
+
+// padding-margin
+
+$padding-margin-max: 12;
+
+$padding-margin-prop: (
+    p: (
+        padding,
+    ),
+    pr: (
+        padding-right,
+    ),
+    pb: (
+        padding-bottom,
+    ),
+    px: (
+        padding-left,
+        padding-right,
+    ),
+    py: (
+        padding-top,
+        padding-bottom,
+    ),
+    mr: (
+        margin-right,
+    ),
+    ml: (
+        margin-left,
+    ),
+    mb: (
+        margin-bottom,
+    ),
+    mx: (
+        margin-left,
+        margin-right,
+    ),
+    my: (
+        margin-top,
+        margin-bottom,
+    ),
+);
+
+$padding-margin-size: (
+    py:(
+        header: (
+            base: 13px,
+            sm: 14px,
+            md: 15px,
+            lg: 16px,
+        ),
+        story:(
+            base: 87px,
+            sm: 108px,
+            md: 129px,
+            lg: 151px,
+        ),
+        // 觀察設計稿大容器上下間距為
+        // 手機版：32px
+        // 電腦版：64px
+        section: (
+            base: 32px,
+            sm: 43px,
+            md: 53px,
+            lg: 64px,
+        ),
+    ),
+);
+
+// display
+
+$display: (
+    flex,
+    block,
+    inline,
+    inline-block,
+    none,
+);
+
+// text-align
+
+$text-align: (
+    start: left,
+    center: center,
+    end: right,
+);
+
+// flex
+
+$flex: (
+    row: row,
+    column: column,
+    row-reverse: row-reverse,
+    column-reverse: column-reverse,
+);
+
+$justify-content: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+    between: space-between,
+);
+
+$align-items: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+);
+
+// 等比容器
+
+$width-px: (
+    40px,
+    64px,
+);
+
+// color
+
+$color: (
+
+    // Primary
+    // 主色用於產品畫面中的重點、CTA按鈕，需符合20%原則，避免過多主色分散注意
+
+    p100: #F5FEE7,
+    p200: #E8FEC5,
+    p300: #C0FA73,
+    p400: #57A203,
+    p500: #477A11,
+
+    // Neutral
+    // 用於文字、表格、分隔線等基礎介面元素，創造和諧的視覺體驗，不搶走主要內容的注意力
+
+    n000: #FFFFFF,
+    n100: #F8F9FA,
+    n200: #E9ECEF,
+    n300: #DEE2E6,
+    n400: #CED4DA,
+    n500: #ADB5BD,
+    n600: #6C757D,
+    n700: #495057,
+    n800: #343A40,
+    n900: #212529,
+
+    // danger
+
+    d100: #FCF1F1,
+    d200: #EBA7A7,
+    d300: #D74F4F,
+);
+
+// font-size
+// 1 單位 4 px
+// 這裡寫 16 是支援到 64 px 的意思
+
+$font-size: 16;
+
+// font-weight
+
+$font-weight: (
+    5,
+    7,
+);
+
+// 偽元素線條粗細
+// 一單位 1px
+
+$after-line-bold: 3;
+
+
+// 偽元素斷行間距
+// 1 單位 4 px
+// 會用 margin-bottom 推
+
+$after-br: 2;

@@ -1,0 +1,24 @@
+// 品牌故事 Brand Story
+
+.bg-story{
+    background-image: url(../images/other/story.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+@media(min-width: map-get($breakpoints,sm)){
+    .bg-story{
+        background-image: url(../images/2025-week1/hero.png);
+    }
+}
+
+// 主要內容
+
+@media(min-width: map-get($breakpoints,lg)){
+    .main-img{
+        max-width: ($layout-column-pixel * 10) + ($layout-gutter-pixel * 9);
+        margin-left: ($layout-column-pixel + $layout-gutter-pixel) * -1;
+        margin-right: ($layout-column-pixel + $layout-gutter-pixel) * -1;
+    }
+}
