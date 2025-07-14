@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>產品列表頁｜URBNSTEP</title>
+    <script type="module" crossorigin src="/2025-week4-new/assets/main-NTmJwNoj.js"></script>
+    <link rel="stylesheet" crossorigin href="/2025-week4-new/assets/main-B4FqxFP_.css">
+  </head>
+  <body>
+    <!-- header -->
+
+<header class="container-g2 gx-layout py-header">
+    <nav class="scale fw-5 d-flex">
+        <a class="mr-0 mr-sm-12 d-flex align-items-center" href="#">
+            <!-- 
+            傑 利 (前端助教)建議：
+            導覽列 LOGO 建議使用 img 標籤引入圖片
+            -->
+            <img src="/2025-week4-new/assets/logo-RhEl2I3y.svg" alt="logo">
+        </a>
+        <ul class="d-none d-sm-flex">
+            <li class="mr-10"><a class="py-3" href="../pages/product-list.html">商品列表</a></li>
+            <li><a class="py-3" href="../pages/index.html">品牌故事</a></li>
+        </ul>
+        <a class="ml-auto d-flex align-items-center" href="#">
+            <i class="bi bi-person fs-6"></i>
+        </a>
+    </nav>
+</header>
+  
+    
+  <main class="fw-5 scale">
+  <div class="container-g2 gx-layout py-block mb-6 mb-sm-8 mb-md-10 mb-lg-12">
+
+      <!--
+      傑 利 (前端助教)建議：
+      麵包屑也屬於導覽選單，可以使用 <nav> 標籤包裹
+      -->
+
+      <!--
+      這裡為了讓偽元素左右都推擠出相等空間，使用格線系統定義新的 gutter 覆蓋，並用 gx-nav-line-i 統一間距
+      另外不用 div 將 a 標籤包起來是因為，我希望 col 的 padding 能增加 a 標籤點擊範圍  
+      -->
+    
+      <nav class="scale mb-3 mb-sm-4 mb-md-5 mb-lg-6">
+        <div class="row gx-nav-line-i">
+          <a class="col-gutter c-n600" href="../pages/index.html">首頁</a>
+          <span class="line-i line-i-n300"></span>
+          <a class="col-gutter c-n600" href="../pages/product-list.html">女鞋</a>
+          <span class="line-i line-i-n300"></span>          
+          <a class="col-gutter" href="#">所有商品</a>
+        </div>
+      </nav>
+
+      <!-- 響應式出現 py 9.5px 的標題 -->
+
+      <div class="py-product-title mb-3 mb-sm-4 mb-md-5 mb-lg-6">
+        <h1 class="fs-6 fs-lg-7">女鞋</h1>
+      </div>
+
+      <!-- 有側邊欄和產品圖片的區塊 -->
+
+      <div class="row">
+
+        <!--
+        側邊欄
+        用 col-12 是為了推 y 軸 gutter
+        -->
+
+        <div class="col-2 d-none d-sm-block">
+          <ul class="row gy-project-sidebar">
+            <li class="col-12"><a href="#" class="py-3 c-p400">所有商品</a></li>
+            <li class="col-12"><a href="#" class="py-3">慢跑鞋</a></li>
+            <li class="col-12"><a href="#" class="py-3">滑板鞋</a></li>
+            <li class="col-12"><a href="#" class="py-3">厚底鞋</a></li>
+            <!-- 太長了，斷行！ -->
+            <li class="col-12"><a href="#" class="py-3">限定 / <span class="br br-mb-2"></span>聯名企劃</a></li>
+          </ul>
+        </div>
+
+        <!-- 產品圖片區塊 -->
+
+        <div class="col-12 col-sm-10">
+          <!--
+          由於 row 的 margin 負值 選擇用 padding 補下距
+          盒模型快爆炸了
+          -->
+          <div class="pb-8 pb-sm-10 pb-md-11 pb-lg-12">
+            <ul class="row gy-project-img-list">
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-ByIiOSCa.png" alt="product"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">PLATFORM 404</a></h3>
+                <p>NT$2,600</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-1-BSd-Oeai.png" alt="product-1"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">PLATFORM 404</a></h3>
+                <p>NT$2,600</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-2-B3VzoAng.png" alt="product-2"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">VM001</a></h3>
+                <p>NT$2,600</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-3-AxvEbKOW.png" alt="product-3"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">Melty Kiss</a></h3>
+                <p>NT$4,000</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-4-CqyUCYzf.png" alt="product-4"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">BOOMBLOK</a></h3>
+                <p>NT$3,200</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-5-Crvwip2z.png" alt="product-5"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">BOOMBLOK</a></h3>
+                <p>NT$3,200</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-6-D5PaxBWx.png" alt="product-6"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">R:UNER</a></h3>
+                <p>NT$4,000</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-7-DJXgZGzn.png" alt="product-7"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">Sugar Snap</a></h3>
+                <p>NT$4,000</p>
+              </li>
+              <li class="col-6 col-sm-4">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-8-JQPwydt4.png" alt="product-8"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">Neofoam</a></h3>
+                <p>NT$4,000</p>
+              </li>
+              <li class="col-6 col-sm-4 d-block d-sm-none">
+                <div class="mb-2 mb-lg-3"><img src="/2025-week4-new/assets/product-9-DL5QGtW6.png" alt="product-9"></div>
+                <h3 class="mb-0 mb-lg-1"><a href="#">Buttermood</a></h3>
+                <p>NT$4,000</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 這一塊用格線系統感覺超難做 -->
+
+          <nav class="bp-primary">
+            <ul class="d-flex justify-content-center">
+              <li class="w-40px aspect-1-1 mr-3"><a class="d-flex justify-content-center align-items-center h-100" href="#"><i class="bi bi-chevron-left"></i></a></li>
+              <li class="w-40px aspect-1-1 mr-2"><a class="d-flex justify-content-center align-items-center h-100" href="#">1</a></li>
+              <li class="w-40px aspect-1-1 mr-2"><a class="d-flex justify-content-center align-items-center h-100" href="#">2</a></li>
+              <li class="w-40px aspect-1-1 mr-2"><a class="d-flex justify-content-center align-items-center h-100" href="#">3</a></li>
+              <li class="w-40px aspect-1-1 mr-2"><a class="d-flex justify-content-center align-items-center h-100" href="#">...</a></li>
+              <li class="w-40px aspect-1-1 mr-3"><a class="d-flex justify-content-center align-items-center h-100" href="#">10</a></li>
+              <li class="w-40px aspect-1-1"><a class="d-flex justify-content-center align-items-center h-100" href="#"><i class="bi bi-chevron-right"></i></a></li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>     
+    </div>
+  </main>
+
+    <!-- 加入會員取得 9 折優惠(馬上註冊)-->
+
+<section class="bg-p200 py-6 d-flex justify-content-center align-items-center">
+    <h2 class="fs-5 fs-lg-6 mr-4 mr-sm-5 mr-lg-6">加入會員取得 9 折優惠</h2>
+    <button type="button" class="btn btn-sm btn-bp-lg btn-secondary">馬上註冊</button>
+</section>    <footer class="container-g2 gx-layout py-section">
+    <nav class="scale mb-8">
+        <div class="d-block d-sm-flex align-items-sm-center justify-content-sm-between pb-6">
+            <a class="mb-2 mb-sm-0" href="#">
+                <img src="/2025-week4-new/assets/logo-RhEl2I3y.svg" alt="logo">
+            </a>
+            <ul class="d-bolck d-sm-flex">
+                <li class="mr-sm-10 mr-sm-0 mb-1 mb-sm-0"><a class="py-3" href="#">商品列表</a></li>
+                <li><a class="py-3" href="#">品牌故事</a></li>
+            </ul>
+        </div>
+        <div class="line line-bottom line-n300"></div>
+    </nav>
+    <article class="text-center c-n600 fs-14px">
+        <p class="mb-1">Copyright ©2025 URBNSTYLE</p>
+        <p>All Rights Reserved.</p>
+    </article> 
+</footer>
+  </body>
+</html>
