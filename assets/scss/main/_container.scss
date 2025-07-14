@@ -152,6 +152,15 @@ $xy-list:(
     }
 }
 
+// 僅推擠出上下左右間距的 column 容器
+
+.col-gutter{
+    padding-left: calc(var(--gutter-x) * 0.5);
+    padding-right: calc(var(--gutter-x) * 0.5);
+    padding-top: calc(var(--gutter-y) * 0.5);
+    padding-bottom: calc(var(--gutter-y) * 0.5);  
+}
+
 // 響應式版本只更改 width 百分比寬度
 // 因為預設是一定會加沒響應式版本的樣式
 // padding 才會在

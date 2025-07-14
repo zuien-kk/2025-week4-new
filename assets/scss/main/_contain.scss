@@ -101,6 +101,22 @@
             height: ($i * 1px);
         }        
     }
+
+}
+
+.line-i{
+
+    &::after{
+        content: "/";
+    }
+
+    // 斜線顏色
+
+    @each $c-key,$c-value in $color{
+        &-#{$c-key}::after{
+            color: #{$c-value};
+        }
+    }
 }
 
 // 偽元素斷行
@@ -114,14 +130,14 @@
     // 間距
 
     @for $i from 1 through $after-br {        
-        &-mb-sm-#{$i}::after{
-            margin-bottom: ($i * 1px);
+        &-mb-#{$i}::after{
+            margin-bottom: ($i * 4px);
         }
     }
 
 }
 
-@media(min-width: map-get($breakpoints,sm)){
+@media(min-width: map-get($breakpoints,lg)){
 
     .br{
         &::after{
@@ -132,7 +148,7 @@
         // 間距
         
         @for $i from 1 through $after-br {        
-            &-mb-sm-#{$i}::after{
+            &-mb-#{$i}::after{
                 margin-bottom: ($i * 0px);
             }
         }
@@ -161,6 +177,16 @@
 
     &-sm{
         padding: 8px 16px;
+    }
+
+    @media(min-width: map-get($breakpoints,sm)){
+        &-bp-lg{
+            padding: 12px 24px;
+        }
+
+        &-bp-sm{
+            padding: 8px 16px;
+        }        
     }
 
     // 樣式

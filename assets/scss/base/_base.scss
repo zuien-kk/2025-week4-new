@@ -46,6 +46,12 @@ img{
     }
 }
 
+.bp-primary{
+    a:hover{
+        background: map-get($color, p300);
+    }
+}
+
 .disc{
     list-style-type: disc;
     padding-left: 24px;
@@ -53,4 +59,8 @@ img{
 
 .fs-14px{
     font-size: 14px;
+}
+
+.h-100{
+    height: 100%;
 }

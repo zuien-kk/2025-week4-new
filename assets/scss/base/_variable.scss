@@ -52,6 +52,24 @@ $gutter-pixel: (
             lg: 0px,
         )
     ),
+    nav-line-i: (
+        x: (
+            base: 24px,
+        ),
+    ),
+    project-sidebar: (
+        y: (
+            base: 16px,
+        ),
+    ),
+    project-img-list: (
+        y: (
+            base: 24px,
+            sm: 32px,
+            md: 40px,
+            lg: 48px,
+        ),
+    ),
 );
 
 // padding-margin
@@ -118,6 +136,16 @@ $padding-margin-size: (
             md: 53px,
             lg: 64px,
         ),
+        block: (
+            base: 16px,
+            sm: 21px,
+            md: 27px,
+            lg: 32px,
+        ),
+        product-title: (
+            base: 9.5px,
+            lg: 7px,
+        )
     ),
 );
 
