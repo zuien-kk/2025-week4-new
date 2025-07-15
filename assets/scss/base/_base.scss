@@ -77,8 +77,10 @@ img{
   overflow-x: hidden;
 }
 
-.f-sm-300px{
-    flex: 0 0 300px;
+.f-sm-316px{
+    // 300px 加上 gx-hidden-img 的 gutter 寬 16px
+    // 非常手段
+    flex: 0 0 316px;
 }
 
 @media(min-width: map-get($breakpoints,sm)){

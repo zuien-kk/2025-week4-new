@@ -115,8 +115,8 @@ img {
   overflow-x: hidden;
 }
 
-.f-sm-300px {
-  flex: 0 0 300px;
+.f-sm-316px {
+  flex: 0 0 316px;
 }
 
 @media (min-width: 576px) {
@@ -1455,6 +1455,20 @@ img {
 @media (min-width: 992px) {
   .gy-project-img-list {
     --gutter-y: 48px;
+  }
+}
+.gx-hidden-img {
+  --gutter-x: 16px;
+}
+
+@media (min-width: 768px) {
+  .gx-hidden-img {
+    --gutter-x: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .gx-hidden-img {
+    --gutter-x: 24px;
   }
 }
 .container-g1 {
