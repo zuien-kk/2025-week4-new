@@ -2,7 +2,6 @@
 @import './base/reset.scss';
 @import './base/base.scss';
 
-@import './main/container.scss';
 @import './main/contain.scss';
 
 
@@ -12,3 +11,13 @@
 
 
 @import './pages/index.scss';
+
+
+
+
+
+
+
+
+// 這支 scss 的權重不能輸
+@import './main/container.scss';

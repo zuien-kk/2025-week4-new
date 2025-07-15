@@ -58,10 +58,35 @@ img{
     padding-left: 24px;
 }
 
+// 奇怪的字體大小
+
 .fs-14px{
     font-size: 14px;
 }
 
-.h-100{
-    height: 100%;
+// 做按鈕會用到
+
+.flex-1{
+    flex:1;
+}
+
+
+// 截斷圖片
+
+.hidden-sm {
+  overflow-x: hidden;
+}
+
+.f-sm-300px{
+    flex: 0 0 300px;
+}
+
+@media(min-width: map-get($breakpoints,sm)){
+  .hidden-sm {
+    overflow-x: visible;
+  }
+
+  .f-sm-300px {
+    flex: 1 1 0%;
+  }
 }

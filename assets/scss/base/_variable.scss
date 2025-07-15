@@ -70,6 +70,14 @@ $gutter-pixel: (
             sm: 8px,
         ),
     ),
+    project-btn: (
+        x: (
+            base: 8px,
+        ),
+        y: (
+            base: 8px,
+        ),
+    ),
     section: (
         y:(
             base: 32px,
@@ -185,7 +193,11 @@ $padding-margin-size: (
         product-title: (
             base: 9.5px,
             lg: 7px,
-        )
+        ),
+        product-404-title: (
+            base: 8px,
+            lg: 9.5px,
+        ),
     ),
 );
 
