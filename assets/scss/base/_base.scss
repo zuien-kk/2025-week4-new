@@ -47,7 +47,8 @@ img{
 }
 
 .bp-primary{
-    a:hover{
+    a:hover,
+    a:focus{
         background: map-get($color, p300);
     }
 }

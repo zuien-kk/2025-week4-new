@@ -36,6 +36,40 @@ $gutter-pixel: (
             lg: 24px,
         ),
     ),
+    layout-base-0: (
+        x:(
+            base: 0px,
+            sm: 16px,
+            md: 20px,
+            lg: 24px,
+        ),
+        y:(
+            base: 0px,
+            sm: 16px,
+            md: 20px,
+            lg: 24px,
+        ),
+    ),
+    layout-base-normal: (
+        x:(
+            base: 12px,
+            sm: 0px,
+        ),
+        y:(
+            base: 12px,
+            sm: 0px,
+        ),
+    ),
+    project-404-img: (
+        x: (
+            base: 0px,
+            sm: 8px,
+        ),
+        y: (
+            base: 0px,
+            sm: 8px,
+        ),
+    ),
     section: (
         y:(
             base: 32px,
@@ -134,6 +168,12 @@ $padding-margin-size: (
             base: 32px,
             sm: 43px,
             md: 53px,
+            lg: 64px,
+        ),
+        section-base0: (
+            base: 0px,
+            sm: 21px,
+            md: 42px,
             lg: 64px,
         ),
         block: (
