@@ -2,14 +2,14 @@
 // 找時間再處理
 
 .index-banner{
-    background-image: url(../assets/images/2025-week3-4/banner.png);
+    background-image: url(../images/2025-week3-4/banner.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
 .index-middle-banner{
-    background-image: url(../assets/images/2025-week3-4/banner-co-branded.png);
+    background-image: url(../images/2025-week3-4/banner-co-branded.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -27,15 +27,15 @@
     background-color: rgba(0, 0, 0, 0.4); // 灰色遮罩效果
 
     &-p3{
-        background-image: url(../assets/images/2025-week2/product-3.png);      
+        background-image: url(../images/2025-week2/product-3.png);      
     }
     &-p0{
-        background-image: url(../assets/images/2025-week2/product.png);      
+        background-image: url(../images/2025-week2/product.png);      
     }
     &-p9{
-        background-image: url(../assets/images/2025-week2/product-9.png);      
+        background-image: url(../images/2025-week2/product-9.png);      
     }
     &-p10{
-        background-image: url(../assets/images/2025-week3-4/product-10.png);      
+        background-image: url(../images/2025-week3-4/product-10.png);      
     }
 }

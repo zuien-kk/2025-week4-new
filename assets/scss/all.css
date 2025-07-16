@@ -1290,14 +1290,14 @@ img {
   }
 }
 .index-banner {
-  background-image: url(../assets/images/2025-week3-4/banner.png);
+  background-image: url(../images/2025-week3-4/banner.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
 .index-middle-banner {
-  background-image: url(../assets/images/2025-week3-4/banner-co-branded.png);
+  background-image: url(../images/2025-week3-4/banner-co-branded.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1311,16 +1311,16 @@ img {
   background-color: rgba(0, 0, 0, 0.4);
 }
 .muted-card-p3 {
-  background-image: url(../assets/images/2025-week2/product-3.png);
+  background-image: url(../images/2025-week2/product-3.png);
 }
 .muted-card-p0 {
-  background-image: url(../assets/images/2025-week2/product.png);
+  background-image: url(../images/2025-week2/product.png);
 }
 .muted-card-p9 {
-  background-image: url(../assets/images/2025-week2/product-9.png);
+  background-image: url(../images/2025-week2/product-9.png);
 }
 .muted-card-p10 {
-  background-image: url(../assets/images/2025-week3-4/product-10.png);
+  background-image: url(../images/2025-week3-4/product-10.png);
 }
 
 .gx-layout {
