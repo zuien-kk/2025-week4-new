@@ -125,6 +125,7 @@ $xy-list:(
 // row
 // 應該不用響應式
 
+
 .row{
     display: flex;
     flex-wrap: wrap;
@@ -134,11 +135,20 @@ $xy-list:(
     margin-bottom: calc(var(--gutter-y) * -0.5);
 }
 
+
 // 洗掉 row 的 flex-wrap
 
 .nowrap{
     flex-wrap: nowrap;
 }
+
+@media(min-width: map-get($breakpoints,sm)){
+    .nowrap{
+        flex-wrap: wrap;
+    }
+
+}
+
 
 // col
 

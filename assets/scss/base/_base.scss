@@ -71,24 +71,44 @@ img{
 }
 
 
-// 截斷圖片
+// 響應式滾動
 
-.hidden-sm {
-  overflow-x: hidden;
+.scroll-sm {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 }
 
 .f-sm-316px{
-    // 300px 加上 gx-hidden-img 的 gutter 寬 16px
+    // 300px 加上 gx-scroll-img 的 gutter 寬 16px
     // 非常手段
     flex: 0 0 316px;
+    scroll-snap-align: start;
 }
 
 @media(min-width: map-get($breakpoints,sm)){
-  .hidden-sm {
+  .scroll-sm {
     overflow-x: visible;
   }
 
   .f-sm-316px {
-    flex: 1 1 0%;
+    // reset
+    flex: unset;
+    scroll-snap-align: unset;
   }
+}
+
+//偽元素標籤
+//不知道為什麼不能用 map-get 
+
+.position-tag{
+    position: relative;
+    &-no1::after{
+        content: "人氣 No.1";
+        color: #57A203;
+        background: #F5FEE7;
+        padding: 8px 12px;
+        position:absolute;
+        top: 0;
+        left: 0;
+    }
 }

@@ -112,13 +112,37 @@ $gutter-pixel: (
             lg: 48px,
         ),
     ),
-    hidden-img: (
+    scroll-img: (
         x: (
             base: 16px,
             md: 20px,
             lg: 24px,
-        )
-    )
+        ),
+    ),
+    index-new: (
+        x: (
+            base: 12px,
+            sm: 16px,
+            md: 20px,
+            lg: 24px,
+        ),
+        y: (
+            base: 24px,
+            sm: 30px,
+            md: 35px,
+            lg: 40px,
+        ),
+    ),
+    index-wearing: (
+        x: (
+            base: 16px,
+            sm: 8px,
+        ),
+        y: (
+            base: 16px,
+            sm:8px,
+        ),
+    ),
 );
 
 // padding-margin
@@ -205,6 +229,36 @@ $padding-margin-size: (
             base: 8px,
             lg: 9.5px,
         ),
+        index-banner:(
+            base: 155px,
+            sm: 198px,
+            md: 242px,
+            lg: 288px,
+        ),
+        index-middle-banner:(
+            base: 64px,
+            sm: 76px,
+            md: 88px,
+            lg: 100px,
+        ),
+        index-main: (
+            base: 40px,
+            sm: 48px,
+            md: 56px,
+            lg: 64px,
+        ),
+        index-new-title: (
+            base: 5.5px,
+            lg: 5px,    
+        ),
+    ),
+    px: (
+        index-banner:(
+            base: 24px,
+            sm: 82px,
+            md: 140px,
+            lg: 200px,
+        )
     ),
 );
 
@@ -216,6 +270,7 @@ $display: (
     inline,
     inline-block,
     none,
+    contents,
 );
 
 // text-align

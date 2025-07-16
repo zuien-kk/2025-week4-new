@@ -1,24 +1,41 @@
-// 品牌故事 Brand Story
+// 其實這邊應該要分離樣式的
+// 找時間再處理
 
-.bg-story{
-    background-image: url(../images/other/story.png);
+.index-banner{
+    background-image: url(../assets/images/2025-week3-4/banner.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
-@media(min-width: map-get($breakpoints,sm)){
-    .bg-story{
-        background-image: url(../images/2025-week1/hero.png);
-    }
+.index-middle-banner{
+    background-image: url(../assets/images/2025-week3-4/banner-co-branded.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-// 主要內容
+.muted-card {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-@media(min-width: map-get($breakpoints,lg)){
-    .main-img{
-        max-width: ($layout-column-pixel * 10) + ($layout-gutter-pixel * 9);
-        margin-left: ($layout-column-pixel + $layout-gutter-pixel) * -1;
-        margin-right: ($layout-column-pixel + $layout-gutter-pixel) * -1;
+    // 加上灰色遮罩
+    // AI 推薦寫法
+
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.4); // 灰色遮罩效果
+
+    &-p3{
+        background-image: url(../assets/images/2025-week2/product-3.png);      
+    }
+    &-p0{
+        background-image: url(../assets/images/2025-week2/product.png);      
+    }
+    &-p9{
+        background-image: url(../assets/images/2025-week2/product-9.png);      
+    }
+    &-p10{
+        background-image: url(../assets/images/2025-week3-4/product-10.png);      
     }
 }
